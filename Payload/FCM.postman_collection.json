@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "85ddadcf-ae68-430f-86dd-76affd8f8305",
+		"name": "FCM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FCM",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "key=<YOUR SERVER KEY HERE>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"to\":\"/topics/all\",\r\n    \"data\":\r\n    {\r\n        \"title\":\"Discount 📣📣\",\r\n        \"body\":\"Get 20% off with discount on peppers code 'NEW YEAR'\",\r\n        \"ImageUrl\":\"https://homepages.cae.wisc.edu/~ece533/images/peppers.png\"\r\n    }\r\n\r\n}"
+				},
+				"url": {
+					"raw": "https://fcm.googleapis.com/fcm/send",
+					"protocol": "https",
+					"host": [
+						"fcm",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"fcm",
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

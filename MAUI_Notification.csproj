@@ -48,4 +48,10 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+	  <PackageReference Include="Xamarin.Firebase.Messaging">
+	    <Version>123.0.7</Version>
+	  </PackageReference>
+	</ItemGroup>
+
 </Project>
