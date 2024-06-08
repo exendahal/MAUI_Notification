@@ -1,22 +1,19 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.Graphics;
+using Android.OS;
 using AndroidX.Core.App;
 using Firebase.Messaging;
 using Java.Net;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using Color = Android.Graphics.Color;
 
 namespace MAUI_Notification.Platforms.Android
 {
-    [Service]
+    [Service(Exported = true)]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
     [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
-    public class myFirebaseMessaging : FirebaseMessagingService
+    public class MyFirebaseMessaging : FirebaseMessagingService
     {
 
         public override void OnNewToken(string token)
@@ -55,7 +52,15 @@ namespace MAUI_Notification.Platforms.Android
             var largeImageBitmap = BitmapFactory.DecodeResource(res, Resource.Drawable.abc_ab_share_pack_mtrl_alpha);
 
             NotificationCompat.Builder notificationBuilder;
-            var pendingIntent = PendingIntent.GetActivity(this, 100, intent, PendingIntentFlags.OneShot);
+            PendingIntent pendingIntent = null;
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
+            {
+                pendingIntent = PendingIntent.GetActivity(this, 100, intent, PendingIntentFlags.Mutable);
+            }
+            else
+            {
+                pendingIntent = PendingIntent.GetActivity(this, 100, intent, PendingIntentFlags.OneShot);
+            }               
             notificationBuilder = new NotificationCompat.Builder(this, "my_notification_channel")
                                       .SetSmallIcon(Resource.Drawable.abc_ab_share_pack_mtrl_alpha)
                                       .SetContentTitle(title)
@@ -82,9 +87,9 @@ namespace MAUI_Notification.Platforms.Android
                     notificationBuilder.SetStyle(style);
                 }
             }
-            catch
+            catch(Exception ex)
             {
-
+                System.Diagnostics.Debug.Write(ex.Message);
             }
 
 
@@ -92,29 +97,29 @@ namespace MAUI_Notification.Platforms.Android
             notificationManager.Notify(100, notificationBuilder.Build());
         }
 
-        public override void HandleIntent(Intent p0)
+        public override void HandleIntent(Intent intent)
         {
             try
             {
-                if (p0.Extras != null)
+                if (intent.Extras != null)
                 {
                     var builder = new RemoteMessage.Builder("FirebaseMessagingService");
 
-                    foreach (string key in p0.Extras.KeySet())
+                    foreach (string key in intent.Extras.KeySet())
                     {
-                        builder.AddData(key, p0.Extras.Get(key).ToString());
+                        builder.AddData(key, intent.Extras.Get(key).ToString());
                     }
 
                     OnMessageReceived(builder.Build());
                 }
                 else
                 {
-                    base.HandleIntent(p0);
+                    base.HandleIntent(intent);
                 }
             }
             catch (Exception)
             {
-                base.HandleIntent(p0);
+                base.HandleIntent(intent);
             }
         }
     }

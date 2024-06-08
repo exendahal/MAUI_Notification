@@ -5,7 +5,7 @@ Firebase push notification with json payload. Implementation on MAUI Android to 
 * Install following nuget package inside MAUI Android Project
   * Xamarin.Firebase.Messaging
 * Get server key from firebase console and download google-services.json file
-* Place goole-services.json inside android project and set build action to GoogleServices.Json
+* Place goole-services.json inside android project and set build action to GoogleServices.Json. You can set build action with <GoogleServicesJson  Include="Platforms\Android\google-services.json" /> on csproj file.
 
 # Learn More 
 Link: https://docs.microsoft.com/en-us/xamarin/android/data-cloud/google-messaging/remote-notifications-with-fcm?tabs=windows

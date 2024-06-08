@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "95388217737",
+    "project_id": "my-work-space-2097b",
+    "storage_bucket": "my-work-space-2097b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95388217737:android:153704138a9cad3bde7158",
+        "android_client_info": {
+          "package_name": "com.exendahal.pushxamarinnotify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95388217737-q5141db7raggfkk9fl2q6he1g5m6bcbb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8gNuHWRdS_zMFTsH-v6Lk3udzaDSz3XQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95388217737-q5141db7raggfkk9fl2q6he1g5m6bcbb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95388217737:android:73d0fcd47272f768de7158",
+        "android_client_info": {
+          "package_name": "com.exendahal.volunteerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95388217737-q5141db7raggfkk9fl2q6he1g5m6bcbb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8gNuHWRdS_zMFTsH-v6Lk3udzaDSz3XQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95388217737-q5141db7raggfkk9fl2q6he1g5m6bcbb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
