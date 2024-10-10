@@ -53,7 +53,7 @@ namespace MAUI_Notification.Platforms.Android
 
             NotificationCompat.Builder notificationBuilder;
             PendingIntent pendingIntent = null;
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
+            if (OperatingSystem.IsAndroidVersionAtLeast(31))
             {
                 pendingIntent = PendingIntent.GetActivity(this, 100, intent, PendingIntentFlags.Mutable);
             }
